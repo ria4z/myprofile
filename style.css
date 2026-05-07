@@ -241,13 +241,20 @@
             }
             
             .links {
-                flex-wrap: wrap;
-                justify-content: flex-start;
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                white-space: nowrap;
             }
             
             .links a {
-                padding: 0 12px;
-                font-size: 14px;
+                font-size: 12px;
+                padding: 0 8px;
+                flex-shrink: 0;
+            }
+
+            .links a:last-child {
+                border-right: none;
             }
             
             .desktop-flex {
