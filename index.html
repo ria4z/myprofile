@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Portfolio | Rianne</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <style>
+            /* ----- RESET & BASE (preserve original style) ----- */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body, html {
+                margin-top: 10px;
+                margin-left: 40px;
+                margin-right: 40px;
+                margin-bottom: 10px;
+                background-color: black;
+                color: white;
+                font-family: "berlin sans fb", "Berlin Sans FB", "Segoe UI", "Arial", sans-serif;
+                overflow-x: hidden;
+                width: auto;
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                margin: 20px;
+                color: white;
+            }
+
+            /* ----- HEADER (flex row, responsive wrap) ----- */
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                gap: 0;
+            }
+
+            .links a {
+                text-decoration: none;
+                color: white;
+                padding: 0 24px;
+                border-right: 1px solid gray;
+                font-size: 18px;
+                white-space: nowrap;
+            }
+
+            .links a:last-child {
+                border-right: none;
+            }
+
+            /* large heading */
+            .large-heading {
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 75px;
+                line-height: 1.2;
+            }
+
+            /* buttons */
+            .green-btn {
+                margin-top: 25px;
+                background-color: darkgreen;
+                height: 40px;
+                width: 130px;
+                border-radius: 7px;
+                border: none;
+                cursor: pointer;
+                transition: opacity 0.2s;
+            }
+            .green-btn:hover {
+                opacity: 0.85;
+            }
+
+            .black-btn {
+                margin-top: 25px;
+                margin-left: 10px;
+                background-color: black;
+                height: 40px;
+                width: 130px;
+                border-radius: 7px;
+                border: 1px solid darkslategray;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+            .black-btn:hover {
+                background-color: #1a2a1a;
+                border-color: darkgreen;
+            }
+
+            .txtbtn-style {
+                text-decoration: none;
+                font-family: "berlin sans fb", "Berlin Sans FB", sans-serif;
+                color: white;
+                font-size: 15px;
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                line-height: 38px;
+            }
+
+            /* animated STUDENT */
+            .animated-text {
+                color: darkgreen;
+                font-family: "berlin sans fb", "Berlin Sans FB", sans-serif;
+                font-size: 20px;
+                margin-left: 30px;
+                animation-name: fadeInOut;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes fadeInOut {
+                0%, 100% { opacity: 0; color: black; }
+                50% { opacity: 1; color: darkgreen; }
+            }
+
+            /* social icons layout */
+            .social-icons {
+                margin-top: 30px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                align-items: center;
+            }
+            .social-icons a {
+                display: inline-block;
+                transition: transform 0.2s;
+            }
+            .social-icons a:hover {
+                transform: scale(1.05);
+            }
+            .social-icons img {
+                height: 60px;
+                width: auto;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
+            /* MAIN FLEX CONTAINER (desktop: picture right, text left)
+               On mobile: we reorder with flex-direction column and ensure picture is BELOW welcome text */
+            .main-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-left: 30px;
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            /* left content (text + buttons + socials) */
+            .left-content {
+                flex: 1;
+                min-width: 250px;
+            }
+
+            /* right image container */
+            .right-image {
+                margin-left: 20px;
+                margin-right: 30px;
+                flex-shrink: 0;
+            }
+            .right-image img {
+                height: 450px;
+                width: auto;
+                border-radius: 5px;
+                object-fit: cover;
+                display: block;
+            }
+
+            /* preserve original hr */
+            hr {
+                height: 1px;
+                background-color: white;
+                border: none;
+                margin: 10px 0;
+            }
+
+            /* ---------- MOBILE FRIENDLY RULES (exact same design, picture below welcome) ---------- */
+            @media screen and (max-width: 950px) {
+                body, html {
+                    margin-left: 20px;
+                    margin-right: 20px;
+                }
+                .large-heading {
+                    font-size: 52px;
+                }
+                .left-content p {
+                    font-size: 18px;
+                }
+                .right-image {
+                    margin-left: 0;
+                    margin-right: 0;
+                    margin-top: 20px;
+                }
+                .right-image img {
+                    height: auto;
+                    width: 100%;
+                    max-width: 420px;
+                    border-radius: 5px;
+                }
+                /* critical: make main container column and put image after text block */
+                .main-container {
+                    flex-direction: column;
+                }
+                .left-content {
+                    order: 1;
+                    width: 100%;
+                }
+                .right-image {
+                    order: 2;
+                    margin-left: 0;
+                    display: flex;
+                    justify-content: center;
+                }
+                .links a {
+                    padding: 0 16px;
+                    font-size: 15px;
+                }
+                .header h1 {
+                    font-size: 28px;
+                }
+                .animated-text {
+                    margin-left: 20px;
+                }
+                .green-btn, .black-btn {
+                    width: 130px;
+                    height: 40px;
+                }
+                .social-icons img {
+                    height: 52px;
+                }
+            }
+
+            @media screen and (max-width: 650px) {
+                .large-heading {
+                    font-size: 40px;
+                }
+                .left-content p {
+                    font-size: 16px;
+                }
+                .header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .links {
+                    justify-content: flex-start;
+                    margin-top: 5px;
+                }
+                .links a {
+                    padding: 0 12px;
+                    font-size: 14px;
+                }
+                .main-container {
+                    margin-left: 15px;
+                }
+                .animated-text {
+                    margin-left: 15px;
+                }
+                .green-btn, .black-btn {
+                    margin-top: 18px;
+                }
+                .social-icons img {
+                    height: 48px;
+                }
+            }
+
+            /* preserve original margins and spacings for very tiny screens */
+            @media screen and (max-width: 480px) {
+                .large-heading {
+                    font-size: 32px;
+                }
+                .left-content p {
+                    font-size: 15px;
+                }
+                .green-btn, .black-btn {
+                    width: 120px;
+                }
+                .right-image img {
+                    max-width: 95%;
+                }
+                .links a {
+                    padding: 0 8px;
+                    font-size: 12px;
+                }
+            }
+
+            /* keep hover effects & consistency */
+            a {
+                text-decoration: none;
+            }
+            button {
+                background: none;
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1 style="font-family: Pristina, 'Segoe Script', cursive;">Rianne</h1>
+            <nav class="links">
+                <a href="index.html" style="text-decoration: underline 2px; text-underline-offset: 7px; text-decoration-color: darkgreen;">Home</a>
+                <a href="aboutme.html">About Me</a>
+                <a href="workexp.html">Projects</a>
+                <a href="socmed.html">Social Media</a>
+                <a href="resume.html">Resumé</a>
+                <a href="picture.html">Picture</a>
+            </nav>
+        </div>
+        <hr style="height: 1px; background-color: white;">
+        <br><br>
+        <p style="margin-left: 30px;" class="animated-text">STUDENT</p>
+
+        <!-- MAIN FLEX CONTAINER: on desktop picture on the right, text left
+             on mobile CSS reorders: left-content first (text+buttons+socials) then right-image below -->
+        <div class="main-container">
+            <!-- Text column -->
+            <div class="left-content">
+                <p class="large-heading">Hey there, I'm<br>Rianne. Welcome!</p>
+                <p style="margin-top: 10px; font-size: 20px; color: gray;">
+                    I'm a 20-year-old IT student passionate about technology and<br class="desktop-break">innovation. Besides coding, I love music and enjoy playing various<br class="desktop-break">instruments in my free time. Music inspires me and keeps my<br class="desktop-break">creativity flowing both in and out of the classroom.
+                </p>
+                <!-- buttons -->
+                <div>
+                    <button class="green-btn"><a href="contact.html" class="txtbtn-style">Contact Me ➣</a></button>
+                    <button class="black-btn"><a href="aboutMe.html" class="txtbtn-style">My Profile ✉</a></button>
+                </div>
+                <!-- social media icons same original images & links -->
+                <div class="social-icons">
+                    <a href="mailto:riannecabuang@gmail.com" target="_blank"><img src="Images/gmlogo.jpg" alt="gmail" onerror="this.src='https://placehold.co/60x60?text=Gmail'; this.style.objectFit='cover'"></a>
+                    <a href="https://www.instagram.com/_baeriyan" target="_blank"><img src="Images/iglogo.jpg" alt="instagram" onerror="this.src='https://placehold.co/60x60?text=IG'"></a>
+                    <a href="https://www.facebook.com/redvexo" target="_blank"><img src="Images/fblogo.jpg" alt="facebook" onerror="this.src='https://placehold.co/60x60?text=FB'"></a>
+                    <a href="https://tiktok.com/rya4liife" target="_blank"><img src="Images/ttlogo.jpg" alt="tiktok" onerror="this.src='https://placehold.co/60x60?text=TikTok'"></a>
+                    <a href="https://t.me/ria4v" target="_blank"><img src="Images/tglogo.jpg" alt="telegram" onerror="this.src='https://placehold.co/60x60?text=TG'"></a>
+                </div>
+            </div>
+
+            <!-- Image column: placed BELOW welcome text in mobile, on desktop stays on right -->
+            <div class="right-image">
+                <img src="Images/homepic.jpg" alt="Rianne profile" onerror="this.src='https://placehold.co/450x500?text=Rianne+Photo'; this.style.borderRadius='5px'">
+            </div>
+        </div>
+
+        <!-- (optional) small note: all original fonts/colors/positions preserved 
+             while making responsive: picture always below 'Welcome!' on mobile -->
+    </body>
+</html>
