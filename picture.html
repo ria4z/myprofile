@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>This is me!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="header">
+    <h1 style="font-family: Pristina">Rianne</h1>
+    <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="workexp.html">Projects</a>
+        <a href="socmed.html">Social Media</a>
+        <a href="resume.html">Resumé</a>
+        <a href="picture.html" style="text-decoration: underline 2px; text-underline-offset: 7px; text-decoration-color: green">Picture</a>
+    </nav>
+</div>
+
+<hr>
+
+<h2 class="gallery-title">GALLERY</h2>
+
+<div class="gallery-grid">
+    <img src="Images/mepic.jpg" class="gallery-img">
+    <img src="Images/home.jpg" class="gallery-img">
+    <img src="Images/pic2.jpg" class="gallery-img">
+    <img src="Images/pic3.jpg" class="gallery-img">
+    <img src="Images/pic4.jpg" class="gallery-img">
+    <img src="Images/pic5.jpg" class="gallery-img">
+    <img src="Images/pic6.jpg" class="gallery-img">
+    <img src="Images/pic7.jpg" class="gallery-img">
+    <img src="Images/pic8.jpg" class="gallery-img">
+    <img src="Images/pic9.jpg" class="gallery-img">
+    <img src="Images/pic10.jpg" class="gallery-img">
+    <img src="Images/pic11.jpg" class="gallery-img">
+    <img src="Images/pic12.jpg" class="gallery-img">
+    <img src="Images/pic13.jpg" class="gallery-img">
+    <img src="Images/pic14.jpg" class="gallery-img">
+    <img src="Images/pic15.jpg" class="gallery-img">
+    <img src="Images/pic16.jpg" class="gallery-img">
+    <img src="Images/pic17.jpg" class="gallery-img">
+    <img src="Images/1.jpg" class="gallery-img">
+    <img src="Images/5.jpg" class="gallery-img">
+    <img src="Images/6.jpg" class="gallery-img">
+    <img src="Images/7.jpg" class="gallery-img">
+    <img src="Images/8.jpg" class="gallery-img">
+    <img src="Images/9.jpg" class="gallery-img">
+    <img src="Images/10.jpg" class="gallery-img">
+    <img src="Images/11.jpg" class="gallery-img">
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">&#x2190;</span>
+    <img id="lightbox-img">
+</div>
+
+<script>
+const images = document.querySelectorAll(".gallery-img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+    });
+});
+
+function closeLightbox() {
+    lightbox.style.display = "none";
+}
+</script>
+
+</body>
+</html>
