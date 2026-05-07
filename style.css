@@ -251,10 +251,7 @@
                 font-size: 12px;
                 padding: 0 8px;
                 flex-shrink: 0;
-            }
-
-            .links a:last-child {
-                border-right: none;
+                border-right: 1px solid gray;
             }
             
             .desktop-flex {
